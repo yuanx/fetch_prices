@@ -58,7 +58,7 @@ $(document).ready(function ()
 			autoOpen: false, 
 			title: 'Send Email',
 			width: 350,
-			height: 150,
+			height: 200,
 			dialogClass: "email-dialog"
 		});
 		
@@ -79,5 +79,21 @@ $(document).ready(function ()
 		
 		$dialog.dialog('open');
 		
+	});
+	
+	$('#email_form').validate({
+		submitHandler:function(form){
+			SubmittingForm();
+		},
+		rules: {
+			email: {
+				required: true,
+				email: true
+			}			
+		},
+		
+		messages: {
+			email: "Please enter a valid email address"
+		}
 	});
 });

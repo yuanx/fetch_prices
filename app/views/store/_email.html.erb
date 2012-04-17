@@ -1,4 +1,4 @@
-<%= form_tag :action=>'sendmail' do %>
+<%= form_tag({:action=>"sendmail"}, :id=>"email_form") do %>
 	<% session[:return_to] = request.url  %>
 	<div class="field">
 		<%= label_tag "Email:"  %>
