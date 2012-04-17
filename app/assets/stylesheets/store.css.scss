@@ -1,0 +1,183 @@
+// Place all the styles related to the Store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table tbody tr:nth-child(2n+1) td, table tbody tr:nth-child(2n+1) th {
+    background-color: #F9F9F9;
+}
+
+.display_result {
+	width: 100%;
+	margin-bottom: 18px;
+	float: center;
+
+ 	th {
+		font-size: 17px;
+		font-weight: bold;
+		text-align: left;
+		width: auto;
+		min-width: 70px;
+		padding: 8px;
+		
+		.current {
+			padding-right:12px;
+			background-repeat: no-repeat;
+			background-position:right center;
+		}
+		
+		.asc{
+			background-image:url(/images/up_arrow.gif);
+		}
+		
+		.desc{
+			background-image:url(/images/down_arrow.gif);
+		}
+		}
+	
+	td {
+		text-align: left;
+		padding: 8px;
+	}
+		
+	img {
+		height: 100px;
+		width: 80px;
+	}
+	
+	.saleprice{
+		color:red;
+		font-weight:bold;
+	}
+
+}
+
+.pagination{
+	font-size: 15px;
+	padding-bottom: 6px;
+	float:right;
+}
+
+#loading {	
+    background-image: url("/images/loader.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+    font-size: 15px;
+    left: 425px;
+    padding-right: 12px;
+    position: absolute;
+    top: 100px;
+    width: 190px;
+	display:none;
+}
+
+#mask{
+	position:absolute;
+	z-index:1000;
+	background-color:#3B64B3;
+	display:none;
+}
+
+
+#boxes .window {
+	position:fixed;
+	display:none;
+	z-index:1999;
+	padding:5px;
+	
+}
+
+#boxes #dialog{
+	
+	width: 240px;
+	height: 50px;
+	background-color:transparent;
+	
+	
+	p{
+		background: url("/images/loader.gif");
+		background-position:right,center;
+	    background-repeat: no-repeat;
+	    font-size: 17px;
+		margin: 17px 6px;
+		color: #DCEADB;
+	}
+}
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #CFD9F6;
+    }
+  }
+}
+
+#send_email{
+	background-color: #FFF;
+	padding:11px;
+	display:none;
+	
+}
+
+.email-dialog{
+	background-color:#FFF;
+	border:solid 1px #999999;
+}
+
+.ui-dialog-titlebar{
+	height: 37px;
+	background-color: #CFD9F6;
+}
+
+.ui-dialog-titlebar-close{
+	float:right;
+	padding:8px;
+	position: relative;
+}
+
+#ui-dialog-title-send_email {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 8px;
+	position:absolute;
+}
+
+.ui-corner-all {
+    border-radius: 4px 4px 4px 4px;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+    cursor: move;
+}
+
+.ui-resizable-handle {
+    display: block;
+    font-size: 0.1px;
+    position: absolute;
+}
+
+.ui-dialog .ui-resizable-se {
+    bottom: 1px;
+    height: 14px;
+    right: 1px;
+    width: 14px;
+	cursor:se-resize;
+}
+
+.actions{
+	padding-top:4px;
+}

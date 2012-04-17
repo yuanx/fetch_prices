@@ -1,0 +1,11 @@
+<%= form_tag :action=>'sendmail' do %>
+	<% session[:return_to] = request.url  %>
+	<div class="field">
+		<%= label_tag "Email:"  %>
+		<%= text_field_tag :email, params[:email] %>
+	</div>
+	
+	<div class="actions">
+		<%= submit_tag "Send", :name=>nil %>
+	</div>
+<% end %>

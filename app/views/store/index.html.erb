@@ -1,0 +1,52 @@
+<h1>Search Price</h1>
+
+<%= form_tag :root, :method=> 'get', :id=>"form1" do %>
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
+  
+<% end %>
+
+
+<div id="send_email">
+	<%= render 'email' %>
+</div>
+
+<% if flash[:notice]  %>
+	<p id ="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if @result %>
+	<p id="search_result">Search results for "<%= @keyword%>": <%= @result.total_number %> items found</p>
+	
+	<%= paginate @page %>
+	
+	<table class="display_result">
+		<thread>
+			<th>Picture</th>
+			<th><%= sortable "Name","name"%></th>
+			<th><%= sortable "Price","price"%></th>
+			<th><%= sortable "Sale Price","saleprice"%></th>
+			<th><%= sortable "From","from"%></th>
+			<th>Remind</th>
+		</thread>
+		
+		<tbody>
+			<% @page.each do |page| %>
+				<tr>
+					<td><%=link_to image_tag(page[4][0],:alt => page[0]), page[4][1], :target=>"_blank", :class=>"show_img"%></td>
+					<td><%= page[0] %></td>
+					<td><%= page[1] %></td>
+					<td class="saleprice"><%= page[2] %></td>
+					<td><%= image_tag("/images/"+page[3], :style => "height:40px; width:100px;") %></td>
+					<td><%= link_to "Remind Me", url_for("javascript:function re(){return false;}"),:class=>"remind_me",:data=>{:info=>page} %></td>
+				</tr>
+			<% end  %>
+		</tbody>
+		
+	</table>
+		
+<% end  %>
