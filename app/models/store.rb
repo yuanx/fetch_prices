@@ -90,6 +90,20 @@ class Store
       end        
     end
     
+    #Fetch data from NeimanMarcus
+    url_NM = "http://www.neimanmarcus.com/search.jsp?No=0&Ntt="+keywords.gsub(' ','+')+"&_requestid=58494&N=0&st=s&pageSize=500"
+    doc = Nokogiri::HTML(open(url_NM))
+    unless doc.css(".product").empty?
+      doc.css(".product").each do |item|
+        @name << (item.at_css(".recordTextLink").nil? ? "N/A" : item.at_css(".recordTextLink").text.split.join(" "))
+        @price << (item.css(".allpricing .priceadorn .adornmentsText")[1].nil? ? "N/A" : item.css(".allpricing .priceadorn .adornmentsText")[1].text)
+        @sale_price << (item.css(".allpricing .priceadorn .adornmentsText")[3].nil? ? "N/A" : item.css(".allpricing .priceadorn .adornmentsText")[3].text)
+        @link << "http://www.neimanmarcus.com" + item.at_css(".prodImgLink").attributes["href"].value
+        @picture << item.at_css(".prodImgLink .productImage").attributes["src"].value
+        @from << "NeimanMarcus.jpg"
+      end
+    end  
+    
     @picture = @picture.zip(@link)    
     @name_price_picture = @name.zip(@price, @sale_price, @from, @picture)    
     @total_number = @name_price_picture.length
