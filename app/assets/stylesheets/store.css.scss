@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table tbody tr:nth-child(2n+1) td, table tbody tr:nth-child(2n+1) th {
-    background-color: #F9F9F9;
+table tbody tr:nth-child(2n+1) td, table tbody tr:nth-child(2n) th {
+    background-color: #EEEEEE;
 }
 
 .display_result {
@@ -73,7 +73,7 @@ table tbody tr:nth-child(2n+1) td, table tbody tr:nth-child(2n+1) th {
 #mask{
 	position:absolute;
 	z-index:1000;
-	background-color:#3B64B3;
+	background-color:#C0C1C2;
 	display:none;
 }
 
@@ -99,7 +99,7 @@ table tbody tr:nth-child(2n+1) td, table tbody tr:nth-child(2n+1) th {
 	    background-repeat: no-repeat;
 	    font-size: 17px;
 		margin: 17px 6px;
-		color: #DCEADB;
+		color: #EEEEEE;
 	}
 }
 
@@ -111,7 +111,7 @@ ul.ui-autocomplete {
   border: solid 1px #999;
   cursor: default;
   li {
-    background-color: #FFF;
+    background-color: #F9F9F9;
     border-top: solid 1px #DDD;
     margin: 0;
     padding: 0;
@@ -121,26 +121,29 @@ ul.ui-autocomplete {
       padding: 3px;
     }
     a.ui-state-hover, a.ui-state-active {
-      background-color: #CFD9F6;
+      background-color: #EEEEEE;
     }
   }
 }
 
 #send_email{
-	background-color: #FFF;
+	background-color: #F9F9F9;
 	padding:11px;
 	display:none;
 	
 }
 
 .email-dialog{
-	background-color:#FFF;
-	border:solid 1px #999999;
+	background-color:#F9F9F9;
+	-moz-box-shadow: 0 0 5px #1E325A;
+	-webkit-box-shadow: 0 0 5px #1E325A;
+	box-shadow: 0 0 5px #1E325A;
 }
 
 .ui-dialog-titlebar{
 	height: 37px;
-	background-color: #CFD9F6;
+	background-color: #C0C1C2;
+	
 }
 
 .ui-dialog-titlebar-close{
@@ -180,10 +183,16 @@ ul.ui-autocomplete {
 
 .actions{
 	padding-top:4px;
+	clear: both;
+}
+
+.field{
+	clear: both;
 }
 
 label.error {
 	color: red;
 	float: left;
 	padding: 2px 100px 2px 0px;
+	clear: both;
 }

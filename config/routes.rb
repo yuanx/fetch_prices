@@ -1,4 +1,6 @@
 FetchPrices::Application.routes.draw do
+  get "locator/index"
+
   match 'store/index' => 'store#index'
   match 'store/sendmail' => 'store#sendmail'
   #post 'store/sendmail'

@@ -11,16 +11,19 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 13px;
     line-height: 18px;
-	background-color: #3B64B3;
+	background: -moz-linear-gradient(center top , #C0C1C2, #FFFFFF) no-repeat fixed 0 0 transparent;
 }
 
 .container{
 	padding: 20px 40px;
 	margin: 0 auto;
 	width:75%;
-	background-color: #FFF;
+	background-color: #F9F9F9;
 	margin-top:40px;
-	border:solid 1px black;
+	border:solid 1px #E0EDFF;
+	-moz-box-shadow: 0 0 5px #1E325A;
+	-webkit-box-shadow: 0 0 5px #1E325A;
+	box-shadow: 0 0 5px #1E325A;
 }
 
 table {	
