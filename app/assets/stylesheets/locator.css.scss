@@ -1,0 +1,44 @@
+// Place all the styles related to the locator controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#title{
+	margin-left:132px;
+}
+
+#stores{
+	width:75%;
+	margin:20px auto;
+}
+
+.store_info{
+	clear:both;
+	width:860px;
+	height:300px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-top: 4px dotted #EEEEEE;
+	
+	.store_detail{
+		width:420px;
+	}
+	
+	.store_map{
+		width:420px;
+	}
+}
+
+
+.store_info:nth-child(2n+1) .store_detail{
+    float:right;
+}
+
+.store_info:nth-child(2n) .store_map{
+    float:right;
+	padding-bottom:10px;
+}
+
+.store_info:nth-child(2n) .store_detail{
+    text-align:right;
+	float:left;
+}

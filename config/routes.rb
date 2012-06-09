@@ -1,11 +1,11 @@
 FetchPrices::Application.routes.draw do
-  get "locator/index"
+  
+  match '/search_store' => 'locators#search'
 
   match 'store/index' => 'store#index'
   match 'store/sendmail' => 'store#sendmail'
-  #post 'store/sendmail'
-  #get 'store/sendmail'
-  
+
+  resources :locators  
   root :to => 'store#index'
    
     

@@ -1,0 +1,14 @@
+<% if params[:locators]["name"].empty? %>
+  <h1 id="title">ALL STORES IN <%= params[:city].upcase %></h1>
+<% else  %>
+  <h1 id="title"><%= params[:locators]["name"].upcase %> IN <%= params[:city].upcase %></h1>
+<% end  %>
+
+<div id="stores">
+  <% if @locators.empty?  %>
+    <p id="no_found">Sorry, there is no <%= params[:locators]["name"] %> in <%= params[:city] %></p>   
+  <% else  %>
+    <%= render @locators %>    
+  <% end  %>
+  <%= link_to "Try another search","/search_store" %> | <%= link_to "Home", :root %>
+</div>

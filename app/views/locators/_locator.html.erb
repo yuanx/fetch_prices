@@ -1,0 +1,20 @@
+<div class="store_info">
+  <div class="store_detail">
+    <h2 class="store_name"><%= locator.name %></h2>
+    <p class="store_add">
+      <span class="store_add1"><%= locator.street %></span>
+      <br>
+      <span class="store_add2"><%= locator.city %>, <%= locator.state %>,<%= locator.zip %></span>
+      <br>
+      <span class="phone"><%= locator.phone %></span> 
+    </p>  
+    <p class="hours">
+      <%= locator.hours.html_safe %> 
+    </p>
+  </div>
+  
+  <div class="store_map">
+    <% lat,lng = get_cord("#{locator.street}, #{locator.city}, #{locator.state}")  %>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=420x300&sensor=false&zoom=16&markers=#{lat}%2C#{lng}" %>
+  </div>
+</div>  

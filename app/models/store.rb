@@ -93,11 +93,18 @@ class Store
     #Fetch data from NeimanMarcus
     url_NM = "http://www.neimanmarcus.com/search.jsp?No=0&Ntt="+keywords.gsub(' ','+')+"&_requestid=58494&N=0&st=s&pageSize=500"
     doc = Nokogiri::HTML(open(url_NM))
+    
+    #redo the site crwal on 06-08-2012
     unless doc.css(".product").empty?
-      doc.css(".product").each do |item|
-        @name << (item.at_css(".recordTextLink").nil? ? "N/A" : item.at_css(".recordTextLink").text.split.join(" "))
-        @price << (item.css(".allpricing .priceadorn .adornmentsText")[1].nil? ? "N/A" : item.css(".allpricing .priceadorn .adornmentsText")[1].text)
-        @sale_price << (item.css(".allpricing .priceadorn .adornmentsText")[3].nil? ? "N/A" : item.css(".allpricing .priceadorn .adornmentsText")[3].text)
+      doc.css(".product").each do |item| 
+        @name << ((item.at_css('.hasdesigner').nil? || item.at_css('.productdesigner').nil?) ? "N/A" : "#{item.at_css('.productdesigner').text[/[A-Za-z ]+/]} #{item.at_css('.hasdesigner').text[/[A-Za-z ]+/]}")
+        
+        # Origin Price
+        @price << (item.css(".allpricing .priceadorn").nil? ? "N/A" : item.at_css(".priceadorn").text[/[\$\.\,\-0-9]+/])
+        
+        # Sales Price        
+        @sale_price << (item.at_css('.allpricing').children[3].nil? ? "N/A" : item.at_css('.allpricing').children[3].text[/[\$\.\,\-0-9]+/])
+        
         @link << "http://www.neimanmarcus.com" + item.at_css(".prodImgLink").attributes["href"].value
         @picture << item.at_css(".prodImgLink .productImage").attributes["src"].value
         @from << "NeimanMarcus.jpg"

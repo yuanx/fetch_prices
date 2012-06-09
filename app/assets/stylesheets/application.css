@@ -11,7 +11,11 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 13px;
     line-height: 18px;
-	background: -moz-linear-gradient(center top , #C0C1C2, #FFFFFF) no-repeat fixed 0 0 transparent;
+	background: -moz-linear-gradient(center left , #C0C1C2, #FFFFFF) no-repeat fixed 0 0 transparent;/*for firefox*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0C1C2', endColorstr='#FFFFFF'); /* for IE */
+	background: -webkit-linear-gradient(left, #C0C1C2, #FFFFFF); /* for webkit browsers */
+	background-repeat:no-repeat;
+	background-attachment: fixed;
 }
 
 .container{
@@ -24,6 +28,7 @@ body {
 	-moz-box-shadow: 0 0 5px #1E325A;
 	-webkit-box-shadow: 0 0 5px #1E325A;
 	box-shadow: 0 0 5px #1E325A;
+	height:100%;
 }
 
 table {	

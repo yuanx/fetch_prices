@@ -1,0 +1,10 @@
+<h1>Search Store In Your City</h1>
+<%= form_tag locators_path, method:'get' do %>
+  <div class="field">
+    <%= label_tag :store_name, "Select Store" %>
+    <%= collection_select :locators, :name,  Locator.select("DISTINCT(name)"), :name, :name, include_blank: "All" %>
+    <%= hidden_field_tag :city, @city %>
+  </div>
+  
+  <div class="actions"><%= submit_tag "Search", name:nil %></div>
+<% end %>
