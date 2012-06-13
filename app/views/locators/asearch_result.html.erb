@@ -1,0 +1,12 @@
+<h1> All STORES NEAR <%= @lo[0].city.upcase %> (<%= params[:zipcode] %>) </h1>
+<span>In <%= params[:range] %> miles</span>
+
+
+<div id="stores">
+  <% if @locators.empty?  %>
+    <p id="no_found">Sorry, there is no stores near by</p>   
+  <% else  %>
+    <%= render @locators %>    
+  <% end  %>
+  <%= link_to "Try another search","/advanced_search" %> | <%= link_to "Home", :root %>
+</div>

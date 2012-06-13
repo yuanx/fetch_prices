@@ -11,10 +11,12 @@
     <p class="hours">
       <%= locator.hours.html_safe %> 
     </p>
+    <% if locator.has_attribute?(:distance)  %>
+      <p class="distance"><%= locator.distance.round(2) %> miles away</p>
+    <% end  %>
   </div>
   
   <div class="store_map">
-    <% lat,lng = get_cord("#{locator.street}, #{locator.city}, #{locator.state}")  %>
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=420x300&sensor=false&zoom=16&markers=#{lat}%2C#{lng}" %>
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=420x300&sensor=false&zoom=16&markers=#{locator.latitude}%2C#{locator.longitude}" %>
   </div>
 </div>  

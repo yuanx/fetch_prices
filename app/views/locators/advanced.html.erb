@@ -1,0 +1,30 @@
+<h1>Advanced Search</h1>
+
+<div id="find_stores_in_your_city"><%= link_to "Find Stores In Your City", "/search_store" %></div>
+
+<%= form_tag '/locators/search_result', method:"get" do  %>
+  <fieldset id="city_state_search">
+    <legend>Search By City and State</legend>
+    <%= label_tag :state, "State"%>
+    <%= collection_select :locators, :state,  Locator.select("DISTINCT(state)"), :state, :state, include_blank: "Please select a state" %>
+    <br>    
+    <%= label_tag :city, "City"%>
+    <%= grouped_collection_select :locators, :city,  Locator.select("DISTINCT(state)"), :find_city, :state, :city, :city%>
+    <br>
+    <%= submit_tag "Search", name:nil %>
+  </fieldset>
+<% end  %>  
+  
+<%= form_tag '/locators/asearch_result', method:"get" do  %>  
+  <fieldset id="zipcode_search">
+    <legend>Search By Zip Code</legend>
+    <%= label_tag :zip, "Zip Code" %>
+    <%= text_field_tag :zipcode %>
+    <br>
+    <%= label_tag :range, "Range" %>
+    <%= text_field_tag :range, nil, size:5 %> miles
+    <br>
+    <%= submit_tag "Search", name:nil %>
+  </fieldset>
+  
+<% end  %>

@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #title{
-	margin-left:132px;
+	margin-left:53px;
 }
 
 #stores{
-	width:75%;
+	width:89%;
 	margin:20px auto;
 }
 
@@ -41,4 +41,8 @@
 .store_info:nth-child(2n) .store_detail{
     text-align:right;
 	float:left;
+}
+
+fieldset label{
+	text-align: right;
 }
